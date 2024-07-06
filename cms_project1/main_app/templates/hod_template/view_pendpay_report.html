@@ -1,0 +1,35 @@
+{% extends 'main_app/base.html' %}
+{% load static %}
+{% block page_title %}{{page_title}}{% endblock page_title %}
+
+{% block content %}
+
+<h1>View Pending Payment Report</h1>
+
+<!-- {% url 'walkin_stu' as walkin_stu %}
+
+</a><button class="btn btn-primary"><a>  
+</a><a href="{% url 'walkin_stu' %}" class="nav-link {% if walkin_stu == request.path %} active {% endif %}" style="color: white;font-size: larger;font-weight: bold;">Add New +</a>  
+</button>  -->
+<table class="table table-bordered" style="margin: 20px;">
+    <thead style="background-color: black;color: white;">
+    <tr>
+
+        <th>Financial Year</th>
+        <th>Sales Person</th>
+        <th>From date</th>
+        <th>To date</th>
+       
+    </tr>
+</thead>
+    {% for walk in  walks %}
+    <tr>
+    <td>{{ walk.financial_year }}</td>
+    <td>{{ walk.sales_person }}</td>
+    <td>{{ walk.from_date }}</td>
+    <td>{{ walk.to_date }}</td>
+    
+    {% endfor %}
+</table>
+
+{% endblock content %}
